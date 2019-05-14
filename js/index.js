@@ -19,11 +19,20 @@ navItems.forEach(a =>
   })
 );
 
+//Images
+const bannerImg = document.querySelector("img");
+bannerImg.addEventListener("drag", event => {
+  event.target.style.border = "4px solid black";
+});
+
 //Text Content
 const txtContent = document.querySelectorAll("p");
-txtContent[3].addEventListener("dblclick", event => {
-  event.target.style.fontSize = "2rem";
-});
+
+txtContent.forEach(p =>
+  p.addEventListener("dblclick", event => {
+    event.target.style.fontSize = "2rem";
+  })
+);
 
 txtContent[0].addEventListener("mouseover", event => {
   event.target.style.color = "blue";
@@ -37,7 +46,9 @@ buttons.forEach(div =>
     console.log("I was clicked");
   })
 );
-
+buttons[0].addEventListener("keydown", function(event) {
+  event.target.textContent = "KEYDOWN";
+});
 buttons[1].addEventListener("dblclick", function(event) {
   console.log("I was double clicked", event);
 });
