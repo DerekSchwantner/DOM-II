@@ -21,6 +21,7 @@ navItems.forEach(a =>
 
 //Images
 const bannerImg = document.querySelector("img");
+const bottomSection = document.querySelector(".content-pick");
 bannerImg.addEventListener("drag", event => {
   event.target.style.border = "4px solid black";
 });
@@ -38,12 +39,17 @@ txtContent[0].addEventListener("mouseover", event => {
   event.target.style.color = "blue";
 });
 
+bottomSection.addEventListener("click", event => {
+  console.log("the bottom has been clicked");
+});
+
 //Buttons
 const buttons = document.querySelectorAll(".content-pick .destination .btn");
 
 buttons.forEach(div =>
-  div.addEventListener("click", function() {
+  div.addEventListener("click", function(event) {
     console.log("I was clicked");
+    event.stopPropagation();
   })
 );
 buttons[0].addEventListener("keydown", function(event) {
